@@ -1,0 +1,12 @@
+# Dependencies for re-drawing the figures in this folder.
+#
+# Verified environment (used to produce the submitted figures):
+#   Python 3.10.20, matplotlib 3.10.8, numpy 2.2.5, pandas 2.3.3, PyYAML 6.0.3
+# The scripts also expect the Arial font (they fall back to DejaVu Sans if it is
+# absent; only text rasterization is affected, not the data).
+#
+# With matplotlib 3.10.0 the same figures are produced to within 0.3 % of pixels.
+matplotlib==3.10.8
+numpy>=2.0
+pandas>=2.0
+PyYAML>=6.0

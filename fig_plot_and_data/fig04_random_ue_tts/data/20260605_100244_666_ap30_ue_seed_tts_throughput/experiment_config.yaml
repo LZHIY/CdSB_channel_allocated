@@ -1,0 +1,106 @@
+script: fig4_ap30_ue_seed_tts_throughput.py
+experiment:
+  num_ap: 30
+  ap_seed: 15
+  ue_seeds:
+  - 16
+  - 19
+  - 20
+  - 34
+  - 234
+  - 432
+  - 1
+  - 213
+  - 343
+  - 453
+  - 545
+  - 654
+  - 73
+  - 85
+  - 933
+  - 1234
+  - 2345
+  - 3545
+  - 6765
+  - 6785
+  solvers:
+  - CIM
+  - BSB
+  - DSB
+  - GBSB
+  - GDSB
+  - SA
+  samples_per_solver: 100
+  parallel_solvers:
+  - BSB
+  - CIM
+  - DSB
+  - GBSB
+  - GDSB
+  serial_solvers:
+  - SA
+  dt: 0.15
+  steps: 600
+  sa_iter_per_temp: 20
+  p_target: 0.99
+  success_rule: Ralg / Rbk > success_ratio
+  success_ratio: 0.95
+  rbk_definition: best CIM throughput among CIM samples for the same UE seed
+  time_rule: parallel single_run_time = batch_wall_time / samples; SA single_run_time
+    = serial batch_wall_time / samples
+  A_by_ap:
+    30: 0.39
+project_config_used_for_unspecified_defaults:
+  experiment:
+    name: WLAN_Throughput_Scaling
+    runs_per_ap: 3
+    ap_list:
+    - 30
+    - 40
+    - 50
+    - 90
+  environment:
+    num_ch: 3
+    num_ue_per_ap: 10
+    ap_seed: 16
+    ue_seed: 17
+    max_dist: 150
+    carrier_sense_range_m: 70
+  solvers_common:
+    num_agents: 100
+    steps: 1000
+    dt: 0.1
+  algorithms:
+    CIM:
+      enable: true
+      zeta: 0.75
+      gamma: 0.1
+      pump_min: 0
+      pump_max: 1.5
+    DSB:
+      enable: true
+      mode: DSB
+      zeta: 0.75
+      gamma: 0.1
+    BSB:
+      enable: true
+      mode: BSB
+      zeta: 0.75
+      gamma: 0.1
+    GbSB: &id001
+      enable: true
+      A: 0.4
+      zeta: 0.75
+      gamma: 0.1
+    GDSB:
+      enable: true
+      A: 0.4
+      zeta: 0.75
+      gamma: 0.1
+    SA:
+      enable: true
+      t_start: 10.0
+      t_end: 1.0e-05
+      cooling_rate: 0.99
+      iter_per_temp: 100
+    GBSB: *id001

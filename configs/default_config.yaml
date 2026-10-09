@@ -1,0 +1,53 @@
+﻿# configs/default_config.yaml
+experiment:
+  name: "WLAN_Throughput_Scaling"
+  runs_per_ap: 3
+  ap_list: [10,20,30,40,50]
+
+environment:
+  num_ch: 3
+  num_ue_per_ap: 10
+  ap_seed: 16
+  ue_seed: 17
+  max_dist: 150
+  carrier_sense_range_m: 70
+
+solvers_common:
+  num_agents: 100
+  steps: 1000
+  dt: 0.1
+
+algorithms:
+  CIM:
+    enable: true
+    zeta: 0.75
+    gamma: 0.1
+    pump_min: 0
+    pump_max: 1.5
+  DSB:
+    enable: true
+    mode: "DSB"
+    zeta: 0.75
+    gamma: 0.1
+  BSB:
+    enable: true
+    mode: "BSB"
+    zeta: 0.75
+    gamma: 0.1
+  GbSB:
+    enable: true
+    A: 0.4
+    zeta: 0.75
+    gamma: 0.1
+  GDSB:
+    enable: true
+    A: 0.4
+    zeta: 0.75
+    gamma: 0.1
+  SA:
+    enable: true
+    t_start: 10.0
+    t_end: 0.00001
+    cooling_rate: 0.99
+    iter_per_temp: 100
+

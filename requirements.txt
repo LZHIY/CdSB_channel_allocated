@@ -1,0 +1,10 @@
+# Dependencies of the experiment code in this folder.
+#
+# Verified environment (used to produce the shipped measurement data):
+#   Python 3.10.20, numpy 2.2.5, pandas 2.3.3, PyYAML 6.0.3, matplotlib 3.10.8
+# Python 3.10 or newer is required (the scripts use PEP 604 type hints under
+# `from __future__ import annotations`).
+numpy>=2.0
+pandas>=2.0
+PyYAML>=6.0
+matplotlib>=3.10,<3.11
